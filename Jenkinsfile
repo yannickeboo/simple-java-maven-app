@@ -1,14 +1,13 @@
- pipeline {
+pipeline {
  
-  agent { label "slave" }
+ agent { label "slave" }
    
-    environment{
-        VERSION = "${env.BUILD_ID}"
-        IMAGE_NAME = "yannickeboo/maven-app"
-    }
-    stages {
-          
-        stage('Build') { 
+   environment{
+       VERSION = "${env.BUILD_ID}"
+       IMAGE_NAME = "yannickeboo/maven-app"
+   }
+   stages {
+    stage('Build') { 
             agent { 
               docker { image 'docker.io/library/maven:3-openjdk-18-slim' }
           }
